@@ -1,0 +1,12 @@
+To solve the issue, separate the calculation from the `translate3d()` function using variables:
+
+```css
+:root {
+  --calculated-translate: calc(100% - 50px);
+}
+div {
+  transform: translate3d(var(--calculated-translate), 0, 0);
+}
+```
+
+By first calculating the value and storing it in a CSS variable (`--calculated-translate`), we ensure that the `translate3d()` function receives a correctly parsed numeric value.
