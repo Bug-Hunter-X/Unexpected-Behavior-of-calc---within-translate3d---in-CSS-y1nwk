@@ -1,0 +1,11 @@
+The following CSS code snippet demonstrates an uncommon error related to the usage of the `calc()` function within `transform: translate3d()`:
+
+```css
+div {
+  transform: translate3d(calc(100% - 50px), 0, 0);
+}
+```
+
+This code intends to translate the `div` element horizontally by the value calculated as `100% - 50px`. However, the `calc()` function is not correctly parsed within the `translate3d()` function's context leading to unexpected behavior.
+
+This issue arises because `translate3d()` expects numeric values (or values that can be easily interpreted as numbers) for its arguments. The inclusion of `calc()` directly inside the function can interfere with this expectation resulting in either no translation or an unexpected result.
